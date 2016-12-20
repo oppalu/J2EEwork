@@ -4,6 +4,7 @@ import Common.DataInit;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +46,8 @@ public class ShowScoreServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
+        int counter= Integer.parseInt((String) getServletContext().getAttribute("counter"));
+        int online= (Integer) getServletContext().getAttribute("onlineCounter");
 
         if(session == null) {
             response.sendRedirect(request.getContextPath()+"/Login.html");
@@ -52,8 +55,9 @@ public class ShowScoreServlet extends HttpServlet {
             String name = String.valueOf(request.getSession().getAttribute("username"));
             String id = String.valueOf(request.getSession().getAttribute("userid"));
             out.println("<html><body><h3>"+name+" "+id+"</h3><a href=\"/Logout\">注销</a><br>");
-            out.println("<table border=\"1\"><tr>");
-            out.println("<th>课程名称</th><th>成绩</th><th>详细说明</th></tr>");
+            out.println("<div>你是第"+counter+"个访问者</div>");
+            out.println("<div>你是第"+online+"个在线用户</div>");
+            out.println("<table border=\"1\"><tr><th>课程名称</th><th>成绩</th><th>详细说明</th></tr>");
             boolean allOk = true;
             try {
                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM course,exam WHERE id = cid AND sid=?");

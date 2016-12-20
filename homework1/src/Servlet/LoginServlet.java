@@ -6,6 +6,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,6 +53,14 @@ public class LoginServlet extends HttpServlet {
                 if(result.next()) {
                     session.setAttribute("userid",name);
                     session.setAttribute("username",result.getString(2));
+                    //登录成功后增加在线登录人数
+                    ServletContext Context= getServletContext();
+                    int counter= Integer.parseInt((String) Context.getAttribute("counter"));
+                    int online= (Integer) Context.getAttribute("onlineCounter");
+                    counter++;
+                    online++;
+                    Context.setAttribute("counter", Integer.toString(counter));
+                    Context.setAttribute("onlineCounter",online);
                     response.sendRedirect(request.getContextPath()+"/ShowScore");
                 } else {
                     out.println("<html><body><h3>用户名或密码错误!</h3><a href=\"Login.html\">请重新登录</a></body></html>");

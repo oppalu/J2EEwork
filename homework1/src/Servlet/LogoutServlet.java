@@ -1,5 +1,6 @@
 package Servlet;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,10 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        ServletContext Context= getServletContext();
+        int online= (Integer) Context.getAttribute("onlineCounter");
+        online--;
+        Context.setAttribute("onlineCounter",online);
         session.invalidate();
         response.sendRedirect(request.getContextPath()+"/Login.html");
     }
