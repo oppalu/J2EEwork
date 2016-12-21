@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
+
         if(!(name == null || "".equals(name) || password == null || "".equals(password))) {
             try {
                 PreparedStatement statement = conn.prepareStatement("SELECT * FROM student WHERE id=? AND password=?");
@@ -55,15 +56,15 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("username",result.getString(2));
                     //登录成功后增加在线登录人数
                     ServletContext Context= getServletContext();
-                    int counter= Integer.parseInt((String) Context.getAttribute("counter"));
+                    int visitor= (Integer)Context.getAttribute("visitor");
                     int online= (Integer) Context.getAttribute("onlineCounter");
-                    counter++;
+                    visitor--;
                     online++;
-                    Context.setAttribute("counter", Integer.toString(counter));
+                    Context.setAttribute("visitor", visitor);
                     Context.setAttribute("onlineCounter",online);
                     response.sendRedirect(request.getContextPath()+"/ShowScore");
                 } else {
-                    out.println("<html><body><h3>用户名或密码错误!</h3><a href=\"Login.html\">请重新登录</a></body></html>");
+                    out.println("<html><body><h3>用户名或密码错误!</h3><a href=\"/\">请重新登录</a></body></html>");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

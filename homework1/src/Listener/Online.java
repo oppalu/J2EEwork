@@ -29,6 +29,7 @@ public class Online implements ServletContextListener, ServletContextAttributeLi
             BufferedReader reader = new BufferedReader(new FileReader("/Users/phoebegl/J2EEwork/homework1/count.txt"));
             servletContext.setAttribute("counter", reader.readLine());
             servletContext.setAttribute("onlineCounter", 0);
+            servletContext.setAttribute("visitor",0);
             reader.close();
         } catch (Exception e) {
             e.printStackTrace();

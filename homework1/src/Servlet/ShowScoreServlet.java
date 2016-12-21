@@ -50,7 +50,7 @@ public class ShowScoreServlet extends HttpServlet {
         int online= (Integer) getServletContext().getAttribute("onlineCounter");
 
         if(session == null) {
-            response.sendRedirect(request.getContextPath()+"/Login.html");
+            response.sendRedirect(request.getContextPath()+"/");
         } else {
             String name = String.valueOf(request.getSession().getAttribute("username"));
             String id = String.valueOf(request.getSession().getAttribute("userid"));
