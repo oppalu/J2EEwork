@@ -20,25 +20,26 @@
 </form>
 
 <%
-    int counter= Integer.parseInt((String) application.getAttribute("counter"));
-    int visitor = (Integer) application.getAttribute("visitor");
+    ServletContext context = session.getServletContext();
+    int counter= Integer.parseInt((String) context.getAttribute("counter"));
+    int visitor = (Integer) context.getAttribute("visitor");
     counter++;
     visitor++;
-    application.setAttribute("counter", Integer.toString(counter));
-    application.setAttribute("visitor",visitor);
+    context.setAttribute("counter", Integer.toString(counter));
+    context.setAttribute("visitor",visitor);
 %>
 
 <div>
     访问总人数:
-    <%=Integer.parseInt((String) application.getAttribute("counter"))%>
+    <%=counter%>
 </div>
 <div>
     当前在线登录用户总数:
-    <%=application.getAttribute("onlineCounter")%>
+    <%=context.getAttribute("onlineCounter")%>
 </div>
 <div>
     当前在线游客总数:
-    <%=application.getAttribute("visitor")%>
+    <%=visitor%>
 </div>
 </body>
 </html>
