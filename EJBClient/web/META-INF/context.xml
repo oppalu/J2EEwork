@@ -1,0 +1,6 @@
+<Context>
+    <Resource name="jdbc/homework1" auth="Container" type="javax.sql.DataSource"
+              maxActive="50" maxIdle="30" maxWait="10000" logAbandoned="true"
+              username="root" password="2a617" driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/homework1?autoReconnect=true"/>
+</Context>
