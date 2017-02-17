@@ -46,7 +46,7 @@ public class ShowScoreServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
-        int counter= Integer.parseInt((String) getServletContext().getAttribute("counter"));
+        int counter= (Integer) getServletContext().getAttribute("counter");
         int online= (Integer) getServletContext().getAttribute("onlineCounter");
 
         if(session == null) {
@@ -54,30 +54,10 @@ public class ShowScoreServlet extends HttpServlet {
         } else {
             String name = String.valueOf(request.getSession().getAttribute("username"));
             String id = String.valueOf(request.getSession().getAttribute("userid"));
-            out.println("<html><body><h3>"+name+" "+id+"</h3><a href=\"/Logout\">注销</a><br>");
-            out.println("<div>你是第"+counter+"个访问者</div>");
-            out.println("<div>你是第"+online+"个在线用户</div>");
-            out.println("<table border=\"1\"><tr><th>课程名称</th><th>成绩</th><th>详细说明</th></tr>");
-            boolean allOk = true;
-            List<Score> score = user.getScore(id);
-
-            for(int i = 0;i<score.size();i++) {
-                Score s = score.get(i);
-                if(s.getScore() == 0) {
-                    allOk = false;
-                }
-                out.println("<tr>");
-                out.println("<td>"+s.getCoursename()+"</td>");
-                out.println("<td>"+s.getScore()+"</td>");
-                out.println("<td>"+s.getDetail()+"</td>");
-                out.println("</tr>");
-            }
-            out.println("</table>");
-
-            if(allOk == false) {
-                out.println("<h3>注意您所选的课中有未参加的!</h3>");
-            }
-            out.println("</body></html>");
+            getServletContext().setAttribute("username",name);
+            getServletContext().setAttribute("userid",id);
+            getServletContext().setAttribute("score",user.getScore(id));
+            response.sendRedirect("ShowScore.jsp");
         }
 
     }

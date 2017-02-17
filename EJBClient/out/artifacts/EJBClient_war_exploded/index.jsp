@@ -12,7 +12,7 @@
 </head>
 <body>
 <h3>成绩查询系统</h3>
-<form action="/Login" method="post">
+<form action="<%=request.getContextPath() + "/Login"%>" method="post">
     学号:<input type="text" name="uname"><br>
     密码:  <input type="password" name="upass"><br>
     <input type="submit" value="登录">
@@ -21,11 +21,11 @@
 
 <%
     ServletContext context = session.getServletContext();
-    int counter= Integer.parseInt((String) context.getAttribute("counter"));
+    int counter = (Integer)context.getAttribute("counter");
     int visitor = (Integer) context.getAttribute("visitor");
     counter++;
     visitor++;
-    context.setAttribute("counter", Integer.toString(counter));
+    context.setAttribute("counter", counter);
     context.setAttribute("visitor",visitor);
 %>
 

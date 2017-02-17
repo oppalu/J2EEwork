@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="EJBWork:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/EJBWork_jar</output-path>
-    <root id="archive" name="EJBWork.jar">
-      <element id="module-output" name="EJBWork" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/EJBWork/lib/javax.ejb-api.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>

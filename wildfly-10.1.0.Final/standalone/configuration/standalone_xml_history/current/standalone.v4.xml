@@ -430,8 +430,11 @@
         <deployment name="EJBWork_war_exploded.war" runtime-name="EJBWork_war_exploded.war">
             <fs-exploded path="/Users/phoebegl/J2EEwork/EJBWork/out/artifacts/EJBWork_war_exploded.war"/>
         </deployment>
-        <deployment name="EJBWork.jar" runtime-name="EJBWork.jar" enabled="false">
-            <fs-archive path="/Users/phoebegl/J2EEwork/homework3/out/artifacts/EJBWork_jar/EJBWork.jar"/>
+        <deployment name="EJBWork.jar" runtime-name="EJBWork.jar">
+            <fs-archive path="/Users/phoebegl/J2EEwork/EJBWork/out/artifacts/EJBWork_jar/EJBWork.jar"/>
+        </deployment>
+        <deployment name="EJBClient_war_exploded" runtime-name="EJBClient_war_exploded.war" enabled="false">
+            <fs-exploded path="/Users/phoebegl/J2EEwork/EJBClient/out/artifacts/EJBClient_war_exploded"/>
         </deployment>
     </deployments>
 </server>
