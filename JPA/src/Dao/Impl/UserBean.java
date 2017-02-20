@@ -16,12 +16,12 @@ public class UserBean implements UserDao{
 
     @PersistenceContext
     private EntityManager em;
-//    @PersistenceUnit
-//    private EntityManagerFactory factory;
+    @PersistenceUnit
+    private EntityManagerFactory factory;
 
     public UserBean() {
-//        factory =  Persistence.createEntityManagerFactory("MyUnit");
-//        em = factory.createEntityManager();
+        factory =  Persistence.createEntityManagerFactory("MyUnit");
+        em = factory.createEntityManager();
     }
 
     @Override

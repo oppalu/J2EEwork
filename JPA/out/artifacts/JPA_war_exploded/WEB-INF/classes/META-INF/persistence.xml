@@ -9,5 +9,7 @@
             <property name="showSql" value="true" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
         </properties>
+        <class>Model.Score</class>
+        <class>Model.Student</class>
     </persistence-unit>
 </persistence>

@@ -28,7 +28,7 @@ public class EJBFactory {
             final String viewClassName = UserDao.class.getName();
             final String namespace = "ejb:" + appName + "/" + moduleName + "/" + distinctName + "/" + beanName + "!" + viewClassName;
 
-            return (UserDao)context.lookup("ejb:/JPA/UserDaoEJB!Dao.UserDao");
+            return (UserDao)context.lookup(namespace);
         } catch (NamingException e) {
             e.printStackTrace();
         }

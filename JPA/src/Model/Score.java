@@ -20,15 +20,6 @@ public class Score implements Serializable {
 
     public Score() {}
 
-    public Score(String sid,String cid,String coursename,int year,double score,String detail) {
-        this.sid = sid;
-        this.cid = cid;
-        this.coursename = coursename;
-        this.year = year;
-        this.score = score;
-        this.detail = detail;
-    }
-
     @Id
     public String getSid() {
         return sid;
