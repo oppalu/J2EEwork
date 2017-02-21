@@ -103,4 +103,107 @@ sid</columns>
       </key>
     </database-model>
   </data-source>
+  <data-source name="hibernate.cfg.xml/Hibernate" uuid="2eb63593-9e64-4682-b637-e13caa4e138f">
+    <database-info product="MySQL" version="5.7.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="homework1">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="information_schema"/>
+      <schema id="3" name="mysql"/>
+      <schema id="4" name="performance_schema"/>
+      <schema id="5" name="study"/>
+      <schema id="6" name="sys"/>
+      <schema id="7" name="test"/>
+      <table id="8" parent="1" name="course"/>
+      <table id="9" parent="1" name="exam"/>
+      <table id="10" parent="1" name="score"/>
+      <table id="11" parent="1" name="student"/>
+      <column id="12" parent="8" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="13" parent="8" name="coursename">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="14" parent="8" name="year">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <key id="15" parent="8" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="16" parent="9" name="sid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="17" parent="9" name="cid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="18" parent="9" name="score">
+        <mandatory>1</mandatory>
+        <data-type>double|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="19" parent="9" name="detail">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="20" parent="9" name="PRIMARY">
+        <columns>sid
+cid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="21" parent="10" name="cid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="22" parent="10" name="sid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="23" parent="10" name="coursename">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="24" parent="10" name="year">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="25" parent="10" name="score">
+        <data-type>double|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="26" parent="10" name="detail">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="27" parent="10" name="PRIMARY">
+        <columns>cid
+sid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="28" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="29" parent="11" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="30" parent="11" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="31" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
 </component>
