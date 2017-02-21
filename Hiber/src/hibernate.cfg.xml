@@ -11,10 +11,9 @@
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="show_sql">true</property>
         <property name="hibernate.connection.autocommit">true</property>
-
+        <property name="hbm2ddl.auto">update</property>
         <mapping class="Model.Score"/>
         <mapping class="Model.Student"/>
         <!-- DB schema will be updated if needed -->
-        <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
 </hibernate-configuration>

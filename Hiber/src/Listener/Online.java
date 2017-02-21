@@ -22,7 +22,7 @@ public class Online implements ServletContextListener, ServletContextAttributeLi
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext= sce.getServletContext();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("/Users/phoebegl/J2EEwork/JPAClient/count.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("/Users/phoebegl/J2EEwork/Hiber/count.txt"));
             String counter = reader.readLine();
             servletContext.setAttribute("counter", Integer.parseInt(counter));
             servletContext.setAttribute("onlineCounter", 0);
@@ -38,7 +38,7 @@ public class Online implements ServletContextListener, ServletContextAttributeLi
         int counter = (Integer) servletContext.getAttribute("counter");
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/phoebegl/J2EEwork/JPAClient/count.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/phoebegl/J2EEwork/Hiber/count.txt"));
             writer.write(Integer.toString(counter));
             writer.close();
         }catch (Exception e) {

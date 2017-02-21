@@ -37,7 +37,7 @@ public class ShowScoreServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession(false);
-        int counter= Integer.parseInt((String) getServletContext().getAttribute("counter"));
+        int counter= (Integer) getServletContext().getAttribute("counter");
         int online= (Integer) getServletContext().getAttribute("onlineCounter");
 
         if(session == null) {

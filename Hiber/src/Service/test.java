@@ -16,6 +16,11 @@ public class test {
     public void testStudent() {
         Student s = ServiceFactory.getUserService().findStudent("141250037","123456");
         System.out.println(s.getName());
+
+        List<Score> score = ServiceFactory.getUserService().getScore("141250037");
+        for(Score sc : score) {
+            System.out.println(sc.getScore()+" "+sc.getDetail());
+        }
     }
 
     @Test
